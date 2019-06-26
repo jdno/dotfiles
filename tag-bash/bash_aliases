@@ -1,0 +1,24 @@
+# Disk free in human terms
+alias df='df -h'
+
+# Alter the ls command
+alias ll='gls -laGh --color --time-style=long-iso'
+alias ls='gls -Gh --color'
+alias la='ls -a --color'
+
+# List paths
+alias path='echo -e ${PATH//:/\\n}'
+
+# Git
+alias gc='git commit'
+alias gcane='git commit --amend --no-edit'
+alias gcl='git branch --merged | egrep -v "(^\*|master)" | xargs git branch -d'
+alias gco='git checkout'
+alias gp='git pull'
+alias gps='git stash && git pull && git stash pop'
+
+# Python
+# alias activate='source "${HOME}/.virtualenvs/$(basename $(pwd))/bin/activate"'
+
+# Ruby
+alias rd='git status --porcelain | cut -c4- | grep ".rb" | xargs rubocop'
