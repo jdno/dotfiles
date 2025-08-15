@@ -1,0 +1,88 @@
+---
+name: Continuous Integration
+
+"on":
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  format-json:
+    name: Format JSON
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: prettier
+        uses: creyD/prettier_action@v4.6
+        with:
+          dry: true
+          prettier_options: "--check **/*.json"
+
+  format-markdown:
+    name: Format Markdown
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: prettier
+        uses: creyD/prettier_action@v4.6
+        with:
+          dry: true
+          prettier_options: "--check **/*.md"
+
+  format-yaml:
+    name: Format YAML
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: prettier
+        uses: creyD/prettier_action@v4.6
+        with:
+          dry: true
+          prettier_options: "--check **/*.{yaml,yml}"
+
+  lint-markdown:
+    name: Lint Markdown
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: markdownlint-cli
+        uses: nosborn/github-action-markdown-cli@v3.5.0
+        with:
+          files: "**.md"
+
+  lint-yaml:
+    name: Lint YAML
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run yamllint
+        uses: actionshub/yamllint@v1.8.3
