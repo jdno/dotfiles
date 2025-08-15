@@ -1,0 +1,5 @@
+# Cache for Prettier 4
+.prettiercache
+
+# Configuration for IntelliJ IDEs
+.idea/
