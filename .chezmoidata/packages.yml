@@ -2,7 +2,9 @@
 packages:
   darwin:
     brews:
+      - "coreutils"
       - "git"
+      - "gnu-tar"
       - "htop"
       - "jq"
       - "neovim"
