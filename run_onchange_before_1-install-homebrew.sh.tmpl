@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Install Homebrew
+#
+# This script installs Homebrew on macOS if it is not installed already. It is
+# intended to be run before other scripts to ensure that brew can be used to
+# install packages.
+
+{{ if eq .chezmoi.os "darwin" -}}
+if ! command -v brew &> /dev/null; then
+    echo "Homebrew not found. Installing Homebrew..."
+    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+else
+    echo "Homebrew is already installed."
+fi
+{{ end -}}

@@ -1,0 +1,23 @@
+---
+packages:
+  darwin:
+    brews:
+      - "git"
+      - "htop"
+      - "jq"
+      - "neovim"
+      - "starship"
+      - "tree"
+      - "watch"
+      - "zsh"
+      - "zsh-completions"
+      - "zsh-syntax-highlighting"
+    casks:
+      - "iterm2"
+  linux:
+    apt:
+      - "git"
+      - "jq"
+      - "neovim"
+      - "zsh"
+      - "zsh-syntax-highlighting"
