@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+{{ $executable := "/bin/ls" -}}
+{{ if (eq .chezmoi.os "darwin") -}}
+  {{ $executable = "gls" -}}
+{{ end -}}
+# Print the files in the current directory with more details
+alias ll="{{ $executable }} -laGh --color --time-style=long-iso"
