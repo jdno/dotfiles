@@ -16,11 +16,15 @@ RUN apt-get update \
         parallel \
         python3 \
         python3-pip \
+        sudo  \
     && rm -rf /var/lib/apt/lists/*
 
 # Install global developer tools as root
 RUN npm install -g prettier markdownlint-cli \
     && pip3 install --no-cache-dir --break-system-packages pre-commit yamllint
+
+# Install chezmoi
+RUN curl -fsSL https://git.io/chezmoi | sh -s -- -b /usr/local/bin
 
 # Create a non-root user for development
 RUN groupadd vscode && useradd --create-home --gid vscode -s /bin/bash vscode \

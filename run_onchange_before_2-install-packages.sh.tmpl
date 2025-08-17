@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# Install packages
+#
+# This script installs a selection of packages using the correct package manager
+# for each supported operating system.
+
+{{ if eq .chezmoi.os "darwin" -}}
+# Disable quarantine for casks
+HOMEBREW_CASK_OPTS=--no-quarantine brew bundle --file=/dev/stdin <<EOF
+{{ range .packages.darwin.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .packages.darwin.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+EOF
+{{ end -}}
+
+{{ if eq .chezmoi.os "linux" -}}
+# Install packages using apt
+sudo apt-get update
+sudo apt-get install -y --no-install-recommends \
+{{ range .packages.linux.apt -}}
+{{ . | quote }} \
+{{ end -}}
+&& echo "Installed packages."
+{{ end -}}
