@@ -1,0 +1,35 @@
+{{- $machineName := .chezmoi.hostname -}}
+
+{{- if (eq .chezmoi.os "darwin") -}}
+    {{- $machineName := output "scutil" "--get" "ComputerName" -}}
+{{- end -}}
+
+{{- if has "orbstack" .packages.darwin.casks -}}
+# Added by OrbStack: 'orb' SSH host for Linux machines
+# This only works if it's at the top of ssh_config (before any Host blocks).
+# Comment this line if you don't want it to be added again.
+Include ~/.orbstack/ssh/config
+
+{{ end -}}
+
+Host github.com
+	ForwardAgent yes
+
+{{- $borgbaseItemName := printf "BorgBase %s" $machineName -}}
+{{- if printf "op://Infrastructure/%s/username" $borgbaseItemName | onepasswordRead -}}
+{{-   $username := printf "op://Infrastructure/%s/username" $borgbaseItemName | onepasswordRead }}
+
+Host {{ $username }}.repo.borgbase.com
+	IdentityAgent none
+	IdentityFile "~/.ssh/BorgBase"
+	User {{ $username }}
+{{- end }}
+
+Host monitoring.infra.rust-lang.org
+	ProxyJump jdn@bastion.infra.rust-lang.org
+
+{{- if has "1password" .packages.darwin.casks }}
+
+Host *
+	IdentityAgent "~/.1password/agent.sock"
+{{ end -}}

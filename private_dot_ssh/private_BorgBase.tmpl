@@ -1,0 +1,11 @@
+{{- $machineName := .chezmoi.hostname -}}
+
+{{- if (eq .chezmoi.os "darwin") -}}
+    {{- $machineName := output "scutil" "--get" "ComputerName" -}}
+{{- end -}}
+
+{{- $borgbaseItemName := printf "BorgBase %s" $machineName -}}
+{{- if printf "op://Infrastructure/%s/username" $borgbaseItemName | onepasswordRead -}}
+{{-   $username := printf "op://Infrastructure/%s/username" $borgbaseItemName | onepasswordRead }}
+{{-    printf "op://Infrastructure/%s/private key?ssh-format=openssh" $username | onepasswordRead }}
+{{- end -}}

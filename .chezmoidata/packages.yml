@@ -15,7 +15,10 @@ packages:
       - "zsh-completions"
       - "zsh-syntax-highlighting"
     casks:
+      - "1password"
+      - "1password-cli"
       - "iterm2"
+      - "orbstack"
   linux:
     apt:
       - "git"
