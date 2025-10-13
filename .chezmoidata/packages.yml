@@ -2,6 +2,7 @@
 packages:
   darwin:
     brews:
+      - "atuin"
       - "chezmoi"
       - "coreutils"
       - "git"
