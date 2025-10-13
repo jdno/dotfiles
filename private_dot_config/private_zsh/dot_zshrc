@@ -1,0 +1,4 @@
+# Source all .zsh files in ZDOTDIR
+for config_file in $ZDOTDIR/*.zsh(N); do
+  source "$config_file"
+done
