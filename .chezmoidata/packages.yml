@@ -22,6 +22,7 @@ packages:
       - "ghostty"
       - "gpg-suite-no-mail"
       - "iterm2"
+      - "jetbrains-toolbox"
       - "orbstack"
       - "orion"
       - "raycast"
