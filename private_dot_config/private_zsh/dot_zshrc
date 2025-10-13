@@ -1,4 +1,26 @@
-# Source all .zsh files in ZDOTDIR
-for config_file in $ZDOTDIR/*.zsh(N); do
-  source "$config_file"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(starship init zsh)"
+
+# https://docs.brew.sh/Shell-Completion
+FPATH="/opt/homebrew/share/zsh/site-functions:${FPATH}"
+
+# The following lines were added by compinstall
+zstyle :compinstall filename '/Users/jdn/.config/zsh/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
+setopt autocd
+# End of lines configured by zsh-newuser-install
+
+for file in /Users/jdn/.config/zsh/*.zsh; do
+    source "${file}"
 done
+
+# Must be the last instructions
+source "/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
