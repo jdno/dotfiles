@@ -2,6 +2,7 @@
 packages:
   darwin:
     brews:
+      - "chezmoi"
       - "coreutils"
       - "git"
       - "gnu-tar"
@@ -17,8 +18,14 @@ packages:
     casks:
       - "1password"
       - "1password-cli"
+      - "ghostty"
+      - "gpg-suite-no-mail"
       - "iterm2"
       - "orbstack"
+      - "orion"
+      - "raycast"
+      - "signal"
+      - "whatsapp"
   linux:
     apt:
       - "git"
