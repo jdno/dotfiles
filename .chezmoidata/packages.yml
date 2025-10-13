@@ -5,6 +5,7 @@ packages:
       - "atuin"
       - "chezmoi"
       - "coreutils"
+      - "curl"
       - "git"
       - "gnu-tar"
       - "htop"
