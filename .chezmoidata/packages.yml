@@ -20,14 +20,22 @@ packages:
     casks:
       - "1password"
       - "1password-cli"
+      - "alfred"
+      - "alt-tab"
+      - "claude"
+      - "claude-code"
+      - "fantastical"
       - "ghostty"
       - "gpg-suite-no-mail"
       - "iterm2"
       - "jetbrains-toolbox"
+      - "karabiner-elements"
+      - "notion"
       - "orbstack"
       - "orion"
-      - "raycast"
       - "signal"
+      - "slack"
+      - "synology-drive"
       - "whatsapp"
   linux:
     apt:
