@@ -1,0 +1,21 @@
+[user]
+        name = Jan David
+        email = jdno@jdno.dev
+        signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKoH6CKep+6D+kqOQ+XJLY6fA/jGZ4hV934/wRX8mZBC
+[core]
+        editor = nvim
+        excludesfile = {{ .chezmoi.homeDir }}/.gitignore_global
+[commit]
+        gpgsign = True
+[gpg]
+        format = ssh
+[gpg "ssh"]
+        program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+[init]
+        defaultBranch = main
+[pull]
+        rebase = True
+[push]
+        autoSetupRemote = true
+        default = current
+        followTags = True
