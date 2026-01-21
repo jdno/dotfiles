@@ -1,7 +1,7 @@
 {{- $machineName := .chezmoi.hostname -}}
 
 {{- if (eq .chezmoi.os "darwin") -}}
-    {{- $machineName := output "scutil" "--get" "ComputerName" -}}
+    {{- $machineName = output "scutil" "--get" "ComputerName" | trim -}}
 {{- end -}}
 
 {{- $borgbaseItemName := printf "BorgBase %s" $machineName -}}
