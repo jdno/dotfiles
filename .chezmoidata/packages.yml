@@ -30,6 +30,7 @@ packages:
       - "alt-tab"
       - "balenaetcher"
       - "balsamiq-wireframes"
+      - "beeper"
       - "chatgpt"
       - "claude"
       - "claude-code"
